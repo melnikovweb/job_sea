@@ -1,0 +1,82 @@
+/* stylelint-disable */
+:root {
+
+  //line height / font size
+  --sk-line-height--body: #{(20/16)};
+  --sk-line-height--h1: #{(70/65)};
+  --sk-line-height--h2: #{(31/25)};
+  --sk-line-height--h3: #{(54/44)};
+  --sk-line-height--h4: #{(44/34)};
+  --sk-line-height--h5: #{(38/24)};
+  --sk-line-height--h6: #{(38/24)};
+  --sk-line-height-single--body: #{(23.4/18)};
+  --sk-line-height-single--h1: #{(35/28)};
+  --sk-line-height-single--h2: #{(32.5/26)};
+  --sk-line-height-single--h3: #{(30/24)};
+  --sk-line-height-single--h4: #{(27.5/22)};
+  --sk-line-height-single--h5: #{(25/20)};
+  --sk-line-height-single--h6: #{(22.5/18)};
+  --sk-line-height--hero-title: #{(92/86)};
+  --sk-line-height--hero-home-title: #{(79/86)};
+  --sk-line-height--benefits-title: #{(31.25/21)};
+  --sk-line-height--works-title: #{(55/44)};
+  --sk-line-height--cards-text: #{(30/24)};
+  --sk-line-height--cards-index: #{(55/44)};
+  --sk-line-height--pagination: #{(58.5/30)};
+  --sk-line-height--pagination-current: #{(78/40)};
+
+  --sk-text-base-size: 16px;
+
+  --sk-text--h1-up: #{clamp-calc(40px, 80px)};
+  --sk-text--h1: #{clamp-calc(20px, 28px)};
+  --sk-text--h2: #{clamp-calc(18px, 25px)};
+  --sk-text--h3: #{clamp-calc(17px, 24px)};
+  --sk-text--h4: #{clamp-calc(16px, 22px)};
+  --sk-text--h5: #{clamp-calc(16px, 20px)};
+  --sk-text--h6: #{clamp-calc(16px, 18px)};
+  --sk-text-single--h1: #{clamp-calc(18px, 28px)};
+  --sk-text-single--h2: #{clamp-calc(16px, 26px)};
+  --sk-text-single--h3: #{clamp-calc(14px, 24px)};
+  --sk-text-single--h4: #{clamp-calc(14px, 22px)};
+  --sk-text-single--h5: #{clamp-calc(14px, 20px)};
+  --sk-text-single--h6: #{clamp-calc(14px, 18px)};
+  --sk-text--hero-title: #{clamp-calc(37px, 86px)};
+  --sk-text--hero-home-title: #{clamp-calc(49px, 86px)};
+  --sk-text--benefits-title: #{clamp-calc(20px, 25px)};
+  --sk-text--works-title: #{clamp-calc(30px, 44px)};
+  --sk-text--cards-text: #{clamp-calc(14px, 24px)};
+  --sk-text--cards-index: #{clamp-calc(20px, 44px)};
+  --sk-text--cards-index-title: #{clamp-calc(18px, 34px)};
+  --sk-text--pagination: #{clamp-calc(15px, 30px)};
+  --sk-text--pagination-current: #{clamp-calc(20px, 40px)};
+  --sk-text--single: #{clamp-calc(14px, 18px)};
+  --sk-text--xs: 15px;
+  --sk-text--2xs: 14px;
+}
+
+@include breakpoint-down(sm) {
+  :root {
+    --sk-line-height--body: #{(28/20)};
+    --sk-line-height--h1: #{(34/30)};
+    --sk-line-height--h2: #{(18/25)};
+    --sk-line-height--h3: #{(32/24)};
+    --sk-line-height--h4: #{(32/20)};
+    --sk-line-height--h5: #{(32/20)};
+    --sk-line-height--h6: #{(28/20)};
+    --sk-line-height-single--body: #{(18.2/14)};
+    --sk-line-height-single--h1: #{(23.2/18)};
+    --sk-line-height-single--h2: #{(20.6/16)};
+    --sk-line-height-single--h3: #{(18.2/14)};
+    --sk-line-height-single--h4: #{(18.2/14)};
+    --sk-line-height-single--h5: #{(18.2/14)};
+    --sk-line-height-single--h6: #{(18.2/14)};
+    --sk-line-height--hero-title: #{(44.22/37)};
+    --sk-line-height--hero-home-title: #{(43/49)};
+    --sk-line-height--benefits-title: #{(25/20)};
+    --sk-line-height--works-title: #{(37.5/30)};
+    --sk-line-height--cards-text: #{(17.5/14)};
+    --sk-line-height--cards-index: #{(25/20)};
+    --sk-line-height--pagination: #{(30/15)};
+    --sk-line-height--pagination-current: #{(39/20)};
+  }
+}

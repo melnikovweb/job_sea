@@ -1,0 +1,68 @@
+<section class="{{ class }} {{ classes }} {{ block_classes }}" id="{{ block.id }}">
+  <div class="sk-container">
+
+    <div class="{{ class }}-content">
+      {% if not (fields.title is empty) %}
+        <h2 class="{{ class }}-title {{ posts|length > 3 ? 'with-arrows' : '' }}">{{ fields.title }}</h2>
+      {% endif %}
+      {% if posts|length > 3 %}
+        <div class="{{ class }}-arrows">
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      {% endif %}
+      {% if not (posts is empty) %}
+      <div class="{{ class }}-updates desktop {{ posts|length > 3 ? 'swiper' : '' }}">
+        <div class="swiper-wrapper">
+          {% for item in posts %}
+            <div class="{{ class }}-updates-item swiper-slide">
+                <div class="post-item-wrapper">
+                  <a href="{{ item._permalink }}" title="{{ item.post_title}}" target="_self" class="post-item-link">
+                    <span class="post-item-date">{{ item.date|date("d/m/Y") }}</span>
+                    <div class="post-item-img">
+                      {% include 'parts/components/image.twig' with {'id': item._thumbnail_id, 'classes': 'item-img sk-image-cover', 'sizes': '(max-width: 767px) 200px, (max-width: 991px) 400px, 600px', 'disableLoading': false} only %}
+                    </div>
+                    <h4 class="post-item-title">{{ item.post_title }}</h4>
+                  </a>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+        <div class="{{ class }}-updates mobile">
+          <div class="swiper-wrapper">
+            {% for item in posts %}
+              {% if loop.index < 4 %}
+              <div class="{{ class }}-updates-item ">
+                <div class="post-item-wrapper">
+                  <a href="{{ item._permalink }}" title="{{ item.post_title}}" target="_self" class="post-item-link">
+                    <div class="post-item-img">
+                      {% include 'parts/components/image.twig' with {'id': item._thumbnail_id, 'classes': 'item-img sk-image-cover', 'sizes': '(max-width: 767px) 200px, (max-width: 991px) 400px, 600px', 'disableLoading': false} only %}
+                    </div>
+                    <div class="post-item-info">
+                      <span class="post-item-date">{{ item.date|date("d/m/Y") }}</span>
+                      <h4 class="post-item-title">{{ item.post_title }}</h4>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if not (fields.link is empty) %}
+        {% set button =  fields.link %}
+        <div class="{{ class }}-button">
+        <a href="{{ button.url }}" target="{{ button.target ? button.target : '_self' }}"
+           title="{{ button.title ? button.title : button.url }}"
+           class="sk-btn sk-btn--primary">
+          {{ button.title ? button.title : button.url }}
+        </a>
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>

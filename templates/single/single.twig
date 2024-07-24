@@ -1,0 +1,13 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {% block hero %}
+      {% include 'parts/layout/hero-single.twig' %}
+    {% endblock %}
+
+  {% for post in posts %}
+
+    {{ post.content }}
+
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,21 @@
+<div class="contacts-hero">
+  <div class="contacts-hero-image-group">
+    <div class="contacts-hero-image">
+      {% if not (bg_image is empty) %} {% include 'parts/components/image.twig'
+      with {'id': bg_image, 'classes': 'contacts-img sk-image-cover', 'sizes':
+      '(max-width: 767px) 800px, (max-width: 991px) 1000px, 1600px',
+      'disableLoading': false} only %} {% endif %} {% if not (bg_image_mobile is
+      empty) %} {% include 'parts/components/image.twig' with {'id':
+      bg_image_mobile, 'classes': 'contacts-mob-img sk-image-cover', 'sizes':
+      '(max-width: 767px) 400, (max-width: 991px) 600, 800', 'disableLoading':
+      false} only %} {% endif %}
+    </div>
+  </div>
+  <div class="sk-container">
+    <div class="contacts-hero-content">
+      {% if title %}
+      <h1 class="contacts-hero-title">{{ title }}</h1>
+      {% endif %}
+    </div>
+  </div>
+</div>

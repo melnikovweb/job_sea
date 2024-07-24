@@ -1,0 +1,25 @@
+<header class="header">
+  <div class="sk-container">
+    <div class="header-wrapper">
+      <a href="{{ homelink }}" title="Home">
+        <img
+          src="{{ logo }}"
+          alt="site-logo"
+          class="header-image prime-logo"
+          height="42"
+          width="152"
+        />
+        {% if not (options.alt_logo is empty) %} {% include
+        'parts/components/image.twig' with {'id': options.alt_logo, 'classes':
+        'header-image alt-logo', 'sizes': '748px'} only %} {% endif %}
+      </a>
+
+      <button class="header-burger" role="button" tabindex="0">
+        <svg class="menu-open">
+          <use href="#icon-menu-open"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+{% include "parts/components/header-side-menu.twig" %}

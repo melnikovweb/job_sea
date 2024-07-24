@@ -1,0 +1,112 @@
+@import "../base/breakpoints";
+@import "../mixins/breakpoints-mixin";
+
+.pagination-block {
+  padding: 60px 0 57px;
+
+  @include breakpoint-down(md-s) {
+    padding: 46px 0 32px;
+  }
+
+  .pagination {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    justify-content: center;
+    grid-column-gap: 50px;
+    margin: 0;
+
+    @include breakpoint-down(md-s) {
+      grid-column-gap: 25px;
+    }
+
+    @include breakpoint-down(xs) {
+      grid-column-gap: 10px;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 78px;
+      font-size: var(--sk-text--pagination);
+      line-height: var(--sk-line-height--pagination);
+      color: var(--sk-color-primary);
+
+      @include breakpoint-down(md) {
+        height: 39px;
+      }
+
+      a {
+        color: inherit;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+
+        &.page-number {
+          min-width: 24px;
+
+          @include breakpoint-up(xxs) {
+            min-width: 42px;
+          }
+        }
+
+        svg {
+          path {
+            fill: var(--sk-color-primary);
+            stroke: var(--sk-color-primary);
+            transition: all 0.3s ease-in-out;
+          }
+        }
+
+        &:hover {
+          text-decoration: none;
+          color: var(--sk-color-primary-light);
+
+          svg {
+            path {
+              fill: var(--sk-color-primary-light);
+              stroke: var(--sk-color-primary-light);
+            }
+          }
+        }
+      }
+
+      button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+      }
+
+      &.disabled {
+        button {
+          opacity: 0.8;
+
+          svg {
+            path {
+              fill: var(--sk-color-primary-light);
+              stroke: var(--sk-color-primary-light);
+            }
+          }
+        }
+      }
+
+      &.current {
+        font-size: var(--sk-text--pagination-current);
+        line-height: var(--sk-line-height--pagination-current);
+        font-weight: 700;
+        color: var(--sk-color-primary-light);
+
+        .page-number {
+          min-width: 25px;
+          text-align: center;
+
+          @include breakpoint-up(xxs) {
+            min-width: 42px;
+          }
+        }
+      }
+    }
+  }
+}

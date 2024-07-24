@@ -1,0 +1,144 @@
+@import "../../resources/scss/theme/base/breakpoints";
+@import "../../resources/scss/theme/mixins/breakpoints-mixin";
+@import "swiper/swiper-bundle.min.css";
+
+.updates-slider {
+  padding: 84px 0 56px;
+  background-color: var(--sk-color-light-grey);
+
+  @include breakpoint-down(md-s) {
+    padding: 54px 0 72px;
+  }
+
+  &-content {
+    position: relative;
+  }
+
+  &-title {
+    color: var(--sk-color-primary);
+    text-transform: uppercase;
+    text-align: center;
+
+    &.with-arrows {
+      padding-right: 85px;
+
+      @include breakpoint-down(xs) {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &-updates {
+    &.desktop {
+      @include breakpoint-down(xs) {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    &.mobile {
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+
+      @include breakpoint-down(xs) {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &:not(&.swiper) {
+      .swiper-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 50px;
+
+        @include breakpoint-down(xs) {
+          grid-template-columns: 1fr;
+          grid-gap: 40px;
+        }
+      }
+    }
+
+    .swiper-wrapper {
+      padding: 55px 0;
+    }
+  }
+
+  &-arrows {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 81px;
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--sk-color-primary);
+      border-radius: 50px;
+      position: static;
+      margin-top: 0;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transition: background-color 0.3s ease-in-out;
+      background-color: transparent;
+
+      &:hover {
+        background-color: var(--sk-color-primary);
+      }
+
+      &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      &::after {
+        content: '';
+        width: 11px;
+        height: 17px;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    .swiper-button-prev {
+      &::after {
+        background-image: url("data:image/svg+xml,%3Csvg width='11' height='17' viewBox='0 0 11 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.74377 0.411144C9.96252 0.629597 10.0719 0.888244 10.0719 1.18709C10.0719 1.48534 9.96252 1.7437 9.74377 1.96215L3.3344 8.36278L9.76565 14.7853C9.96982 14.9891 10.0719 15.244 10.0719 15.5498C10.0719 15.8557 9.96252 16.1178 9.74377 16.3363C9.52502 16.5547 9.26602 16.6639 8.96677 16.6639C8.66811 16.6639 8.4094 16.5547 8.19065 16.3363L0.840648 8.97445C0.753148 8.88707 0.691023 8.7924 0.654273 8.69046C0.618107 8.58852 0.600023 8.47929 0.600023 8.36278C0.600023 8.24627 0.618107 8.13705 0.654273 8.0351C0.691023 7.93316 0.753148 7.8385 0.840648 7.75112L8.21252 0.389301C8.41669 0.185411 8.66811 0.0834675 8.96677 0.0834675C9.26602 0.0834675 9.52502 0.192694 9.74377 0.411144Z' fill='%23234891'/%3E%3C/svg%3E%0A");
+      }
+
+      &:hover {
+        &::after {
+          background-image: url("data:image/svg+xml,%3Csvg width='11' height='17' viewBox='0 0 11 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.74377 0.411144C9.96252 0.629597 10.0719 0.888244 10.0719 1.18709C10.0719 1.48534 9.96252 1.7437 9.74377 1.96215L3.3344 8.36278L9.76565 14.7853C9.96982 14.9891 10.0719 15.244 10.0719 15.5498C10.0719 15.8557 9.96252 16.1178 9.74377 16.3363C9.52502 16.5547 9.26602 16.6639 8.96677 16.6639C8.66811 16.6639 8.4094 16.5547 8.19065 16.3363L0.840648 8.97445C0.753148 8.88707 0.691023 8.7924 0.654273 8.69046C0.618107 8.58852 0.600023 8.47929 0.600023 8.36278C0.600023 8.24627 0.618107 8.13705 0.654273 8.0351C0.691023 7.93316 0.753148 7.8385 0.840648 7.75112L8.21252 0.389301C8.41669 0.185411 8.66811 0.0834675 8.96677 0.0834675C9.26602 0.0834675 9.52502 0.192694 9.74377 0.411144Z' fill='%23FFFFFF'/%3E%3C/svg%3E%0A");
+        }
+      }
+    }
+
+    .swiper-button-next {
+      margin-left: 17px;
+
+      &::after {
+        background-image: url("data:image/svg+xml,%3Csvg width='11' height='17' viewBox='0 0 11 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.25623 16.3159C1.03748 16.0975 0.928101 15.8388 0.928101 15.54C0.928101 15.2417 1.03748 14.9834 1.25623 14.7649L7.6656 8.36427L1.23435 1.94179C1.03018 1.73791 0.928101 1.48305 0.928101 1.17721C0.928101 0.871381 1.03748 0.609239 1.25623 0.390788C1.47498 0.172336 1.73398 0.0631104 2.03323 0.0631104C2.33189 0.0631104 2.5906 0.172336 2.80935 0.390788L10.1594 7.7526C10.2469 7.83999 10.309 7.93465 10.3457 8.03659C10.3819 8.13854 10.4 8.24776 10.4 8.36427C10.4 8.48078 10.3819 8.59 10.3457 8.69195C10.309 8.79389 10.2469 8.88855 10.1594 8.97593L2.78748 16.3377C2.58331 16.5416 2.33189 16.6436 2.03323 16.6436C1.73398 16.6436 1.47498 16.5344 1.25623 16.3159Z' fill='%23234891'/%3E%3C/svg%3E%0A");
+      }
+
+      &:hover {
+        &::after {
+          background-image: url("data:image/svg+xml,%3Csvg width='11' height='17' viewBox='0 0 11 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.25623 16.3159C1.03748 16.0975 0.928101 15.8388 0.928101 15.54C0.928101 15.2417 1.03748 14.9834 1.25623 14.7649L7.6656 8.36427L1.23435 1.94179C1.03018 1.73791 0.928101 1.48305 0.928101 1.17721C0.928101 0.871381 1.03748 0.609239 1.25623 0.390788C1.47498 0.172336 1.73398 0.0631104 2.03323 0.0631104C2.33189 0.0631104 2.5906 0.172336 2.80935 0.390788L10.1594 7.7526C10.2469 7.83999 10.309 7.93465 10.3457 8.03659C10.3819 8.13854 10.4 8.24776 10.4 8.36427C10.4 8.48078 10.3819 8.59 10.3457 8.69195C10.309 8.79389 10.2469 8.88855 10.1594 8.97593L2.78748 16.3377C2.58331 16.5416 2.33189 16.6436 2.03323 16.6436C1.73398 16.6436 1.47498 16.5344 1.25623 16.3159Z' fill='%23FFFFFF'/%3E%3C/svg%3E%0A");
+        }
+      }
+    }
+
+    @include breakpoint-down(xs) {
+      display: none;
+    }
+  }
+
+  &-button {
+    text-align: center;
+  }
+}

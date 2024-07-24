@@ -1,0 +1,17 @@
+.wp-block-group {
+  padding-left: var(--sk-container-padding);
+  padding-right: var(--sk-container-padding);
+
+  @include breakpoint-down(sm) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.wp-block-spacer {
+  &.is-style-hide-for-mobile {
+    @include breakpoint-down(sm) {
+      display: none;
+    }
+  }
+}

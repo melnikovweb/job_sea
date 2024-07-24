@@ -1,0 +1,66 @@
+/* stylelint-disable */
+
+/**
+  Generate colors https://gka.github.io/palettes
+ */
+
+:root {
+  /* Main colors */
+  --sk-color-black: black;
+  --sk-color-white: white;
+  --sk-color-blue: #234891;
+  --sk-color-light-blue: #3879FD;
+  --sk-color-light-blue-2: #3879FC;
+  --sk-color-dark-blue: #282E5C;
+  --sk-color-dark-grey: #3C3C3B;
+  --sk-color-yellow: #F7D34C;
+  --sk-color-yellow-light: #f5dc80;
+  --sk-color-pale-blue: #90E3E3;
+  --sk-color-green: #29F3B2;
+  --sk-color-light-grey: #EBF1FF;
+
+
+
+  --sk-color-primary: var(--sk-color-blue);
+  --sk-color-primary-light: var(--sk-color-light-blue);
+  --sk-color-primary-dark: var(--sk-color-dark-blue);
+
+  --sk-color-second: var(--sk-color-primary); //temporarily
+  --sk-color-second-light: var(--sk-color-primary-light); //temporarily
+  --sk-color-second-dark: var(--sk-color-primary-dark); //temporarily
+
+  --sk-color-third: #13C2C2;
+  --sk-color-third-light: #5CDBD3;
+  --sk-color-third-dark: #006D75;
+
+  /* Background colors */
+  --sk-color-bg-primary: var(--sk-color-second);
+  --sk-color-bg-second: #f2f6fd;
+
+  /* Typography */
+  --sk-color-text: #151515;
+  --sk-color-text-heading: var(--sk-color-text);
+  --sk-color-text-subtle: #8995a6;
+  --sk-color-link: var(--sk-color-second);
+  --sk-color-link-hover: var(--sk-color-second-light);
+  --sk-color-link-visited: var(--sk-color-second);
+
+  /* Border */
+  --sk-color-border: #c8c8c8;
+
+  /* Body */
+  --sk-color-body: var(--sk-color-text);
+
+  /* Feedback */
+  --sk-color-success: green;
+  --sk-color-error: red;
+  --sk-color-warning: orange;
+
+  /* Icons */
+  --sk-color-icon-primary: var(--sk-color-primary);
+  --sk-color-icon-secondary: var(--sk-color-second);
+
+
+  //Other colors
+
+}

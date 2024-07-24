@@ -1,0 +1,252 @@
+@import "../../resources/scss/theme/base/breakpoints";
+@import "../../resources/scss/theme/mixins/breakpoints-mixin";
+
+.hero-home {
+  background-color: var(--sk-color-pale-blue);
+
+  &-wrapper {
+    position: relative;
+    padding: 190px 0 150px;
+    min-height: 825px;
+
+    @include breakpoint-down(xls) {
+      padding-top: 100px;
+    }
+
+    @include breakpoint-down(md-s) {
+      padding-top: 100px;
+      padding-bottom: 54px;
+    }
+
+    @include breakpoint-down(sm) {
+      padding-top: 134px;
+    }
+  }
+
+  &-image {
+    @include breakpoint-down(sm) {
+      display: none;
+    }
+
+    .hero-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @include breakpoint-down(xl) {
+        left: 50%;
+        width: calc(100% + 56px);
+        transform: translate(-50%, -50%);
+      }
+
+      &-wrapper {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        overflow: hidden;
+      }
+    }
+
+    &-mask {
+      position: absolute;
+      background-color: var(--sk-color-pale-blue);
+      height: 100%;
+      left: 0;
+      top: 0;
+      right: calc(50% + 570px);
+
+      @include breakpoint-down(xls) {
+        width: 60.83333%;
+        background-color: transparent;
+      }
+
+      @include breakpoint-down(lg) {
+        width: 70.83333%;
+        right: auto;
+      }
+
+      @include breakpoint-down(md) {
+        width: 85.83333%;
+      }
+
+      &-item {
+        position: absolute;
+        height: 100%;
+        left: calc(50% - 570px);
+        top: 0;
+        right: -876px;
+        max-width: calc(50% + 720px);
+
+        @include breakpoint-down(xls) {
+          left: 0;
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        background: linear-gradient(to bottom right, var(--sk-color-pale-blue) 50%, transparent 50%);
+        left: 0;
+        aspect-ratio: 1/0.84705;
+
+        @include breakpoint-down(xls) {
+          background: var(--sk-color-pale-blue);
+          aspect-ratio: auto;
+          left: 0;
+          top: 0;
+          right: calc(50% + 570px);
+          height: 100%;
+          width: auto;
+        }
+      }
+    }
+  }
+
+  &-title {
+    line-height: var(--sk-line-height--hero-home-title);
+    font-size: var(--sk-text--hero-home-title);
+    color: var(--sk-color-primary);
+    max-width: 790px;
+    margin-bottom: 41px;
+    font-weight: 700;
+
+    @include breakpoint-down(sm) {
+      margin-bottom: 37px;
+    }
+  }
+
+  &-text {
+    max-width: 240px;
+    margin-bottom: 61px;
+
+    @include breakpoint-down(xl) {
+      max-width: 250px;
+    }
+
+    @include breakpoint-down(xls) {
+      max-width: 350px;
+    }
+
+    @include breakpoint-down(sm) {
+      text-align: center;
+      max-width: 400px;
+      padding: 0 20px;
+      margin: 0 auto 33px;
+    }
+  }
+
+  &-content-media-mob {
+    display: none;
+
+    @include breakpoint-down(sm) {
+      display: block;
+      position: relative;
+      margin-bottom: 50px;
+      padding-top: 67.647%;
+
+      .hero-home-video-link {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &-button {
+    @include breakpoint-down(sm) {
+      text-align: center;
+    }
+  }
+
+  &-content-wrapper {
+    display: flex;
+    position: relative;
+    padding-left: 48px;
+
+    @include breakpoint-down(sm) {
+      padding-left: 0;
+    }
+  }
+
+  &-content {
+    width: 70%;
+
+    @include breakpoint-down(md-s) {
+      width: 80%;
+    }
+
+    @include breakpoint-down(sm) {
+      width: 100%;
+    }
+
+    &-media-mob-image {
+      position: absolute;
+      top: 0;
+      left: -25px;
+      right: -25px;
+      height: 100%;
+    }
+  }
+
+  &-video-link {
+    display: flex;
+    width: 91px;
+    height: 91px;
+    background-image: url("../../img/play-btn.svg");
+    background-size: cover;
+    background-position: center;
+    transition: all 0.3s ease-in-out;
+    margin-right: 40px;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.02);
+      opacity: 0.85;
+    }
+
+    @include breakpoint-down(md) {
+      margin-right: 20px;
+    }
+
+    @include breakpoint-down(xs) {
+      width: 50px;
+      height: 50px;
+
+      &:hover {
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &-media {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint-down(md-s) {
+      width: 20%;
+    }
+
+    @include breakpoint-down(sm) {
+      display: none;
+    }
+
+    iframe {
+      opacity: 0;
+      position: relative;
+      z-index: -1;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.page-404 {
+  &-wrapper {
+    margin: 0 auto;
+    padding: 120px 0;
+    background-color: var(--sk-color-general-grey);
+    text-align: center;
+  }
+
+  &-not-found-content {
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+
+    h1,
+    h2 {
+      color: var(--sk-color-white);
+      line-height: 25px;
+    }
+  }
+}
+
+body.error404 {
+  background-color: var(--sk-color-primary);
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

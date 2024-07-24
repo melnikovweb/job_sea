@@ -1,0 +1,25 @@
+{% extends "base.twig" %} {% block content %}
+<div class="page-404-wrapper">
+  <div class="page-404-not-found-wrap not-found-wrap">
+    <div class="page-404-not-found-container sk-container">
+      <div class="page-404-not-found-content">
+        <h1 class="page-404-not-found-head">404</h1>
+        <h2 class="page-404-not-found-title">
+          {{
+            __("Sorry, we couldn't find the page you're looking for.", "dev")
+          }}
+        </h2>
+        <div class="page-404-not-found-back-to-home">
+          <a
+            class="sk-btn sk-btn--primary"
+            title="Homepage"
+            target="_self"
+            href="{{ site.url }}"
+            >{{ __("Or Back To Homepage", "dev") }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

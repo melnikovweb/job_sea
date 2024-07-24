@@ -1,0 +1,97 @@
+.footer {
+  border-top: 1px solid rgba(35, 72, 145, 0.5);
+  padding: 60px 0 56px;
+  background-color: var(--sk-color-white);
+
+  @include breakpoint-down(md-s) {
+    padding: 44px 0 41px;
+  }
+
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 16px;
+
+    @include breakpoint-down(md-s) {
+      flex-wrap: wrap;
+      grid-row-gap: 40px;
+    }
+
+    @include breakpoint-down(xs) {
+      grid-row-gap: 51px;
+    }
+  }
+
+  &-logo {
+    display: flex;
+
+    svg,
+    img {
+      max-width: 120px;
+      max-height: 31px;
+      width: 100%;
+      height: auto;
+    }
+
+    @include breakpoint-down(md-s) {
+      flex-basis: calc(50% - 16px);
+      order: 1;
+    }
+
+    @include breakpoint-down(xs) {
+      justify-content: center;
+      flex-basis: 100%;
+    }
+  }
+
+  &-copyright {
+    color: var(--sk-color-primary-dark);
+    text-align: center;
+    font-size: 15px;
+    line-height: 18.75px;
+
+    a {
+      color: inherit;
+
+      &:hover {
+        color: var(--sk-color-primary-light);
+      }
+    }
+
+    @include breakpoint-down(md-s) {
+      flex-basis: 100%;
+      order: 2;
+    }
+
+    @include breakpoint-down(sm) {
+      font-size: 13px;
+    }
+
+    @include breakpoint-down(xs) {
+      order: 1;
+    }
+  }
+
+  .socials {
+    color: var(--sk-color-primary);
+
+    @include breakpoint-down(md-s) {
+      flex-basis: calc(50% - 16px);
+      order: 1;
+    }
+
+    @include breakpoint-down(xs) {
+      flex-basis: 100%;
+      order: 2;
+    }
+  }
+
+  .single & {
+    margin-top: 76px;
+
+    @include breakpoint-down(sm) {
+      margin-top: 47px;
+    }
+  }
+}

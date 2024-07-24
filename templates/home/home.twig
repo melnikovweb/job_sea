@@ -1,0 +1,33 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="blog-hero">
+    <div class="blog-hero-image-group">
+      <div class="blog-hero-image">
+        {% if not (options.image is empty) %}
+          {% include 'parts/components/image.twig' with {'id': options.image, 'classes': 'blog-img sk-image-cover', 'sizes': '(max-width: 767px) 800px, (max-width: 991px) 1000px, 1600px', 'disableLoading': false} only %}
+        {% endif %}
+        {% if not (options.image_mobile is empty) %}
+          {% include 'parts/components/image.twig' with {'id': options.image_mobile, 'classes': 'blog-mob-img sk-image-cover', 'sizes': '(max-width: 767px) 400, (max-width: 991px) 600, 800', 'disableLoading': false} only %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="sk-container">
+      <div class="blog-hero-content">
+        {% if title %}
+          <h1 class="blog-hero-title">{{ title }}</h1>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% if posts|length > 0 %}
+    <div class="all-posts">
+      <div class="sk-container">
+        <div class="posts-result-wrapper">
+          {% include 'parts/layout/posts.twig' %}
+        </div>
+        {% include 'parts/components/pagination.twig' %}
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}

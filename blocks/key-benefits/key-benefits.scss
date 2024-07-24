@@ -1,0 +1,402 @@
+@import "../../resources/scss/theme/base/breakpoints";
+@import "../../resources/scss/theme/mixins/breakpoints-mixin";
+@import "swiper/swiper-bundle.min.css";
+
+.key-benefits {
+  background-color: var(--sk-color-primary);
+  color: var(--sk-color-white);
+
+  &-content {
+    position: relative;
+    padding: 71px 0 0;
+    z-index: 1;
+
+    @include breakpoint-down(sm) {
+      padding: 55px 0 77px;
+    }
+
+    .content-img-group {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: calc(50% - 287.5px);
+      z-index: -1;
+      overflow: hidden;
+      max-height: 100%;
+
+      &-wrap {
+        position: relative;
+
+        picture {
+          font-size: 0;
+          line-height: 0;
+          display: block;
+        }
+
+        .content-img-triangle {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          left: 0;
+          background: linear-gradient(to bottom right, var(--sk-color-primary) 50%, transparent 50%);
+        }
+      }
+
+      @include breakpoint-down(sm) {
+        display: none;
+      }
+    }
+  }
+
+  &-title {
+    color: var(--sk-color-yellow);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 93px;
+
+    @include breakpoint-down(sm) {
+      margin-bottom: 65px;
+    }
+  }
+
+  &-list {
+    display: flex;
+    row-gap: 108px;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    justify-content: center;
+    padding-bottom: 150px;
+
+    @include breakpoint-down(sm) {
+      flex-direction: column;
+      row-gap: 38px;
+      padding-bottom: 52px;
+    }
+
+    &-item {
+      display: flex;
+      column-gap: 30px;
+      flex-basis: calc(33.5% - 20px);
+
+      @include breakpoint-down(md) {
+        flex-basis: calc(50% - 20px);
+      }
+    }
+
+    .benefit-item {
+      &-img {
+        width: 95px;
+        min-width: 95px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .benefits-logo {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      &-title {
+        font-size: var(--sk-text--benefits-title);
+        font-weight: 700;
+        color: var(--sk-color-white);
+        margin-bottom: 5px;
+        line-height: var(--sk-line-height--benefits-title);
+        letter-spacing: normal;
+      }
+
+      &-text {
+        margin-bottom: 5px;
+        font-size: var(--sk-text--2xs);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &-works {
+    .works-img-group {
+      display: none;
+    }
+
+    @include breakpoint-down(sm) {
+      position: relative;
+      background-color: var(--sk-color-primary-light);
+
+      .works-img-group {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        top: 3.5px;
+        width: 23.97%;
+        display: block;
+
+        &-wrap {
+          position: relative;
+          height: 100%;
+          width: 100%;
+        }
+
+        .works-img {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          object-position: right;
+        }
+
+        .works-img-group-triangle {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          background: linear-gradient(to bottom right, var(--sk-color-primary-light) 50%, transparent 50%);
+        }
+      }
+    }
+
+    &-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      padding-bottom: 21px;
+      position: relative;
+      z-index: 1;
+
+      @include breakpoint-down(md-s) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      @include breakpoint-down(sm) {
+        padding: 18px 0 40px;
+      }
+    }
+
+    &-title {
+      font-size: var(--sk-text--works-title);
+      line-height: var(--sk-line-height--works-title);
+      color: var(--sk-color-white);
+      max-width: 390px;
+      margin-right: 90px;
+
+      @include breakpoint-down(md-s) {
+        margin-bottom: 20px;
+        margin-right: 0;
+      }
+
+      @include breakpoint-down(sm) {
+        max-width: 265px;
+      }
+    }
+
+    &-description {
+      max-width: 305px;
+
+      @include breakpoint-down(xs) {
+        margin-right: 15%;
+      }
+    }
+  }
+
+  &-cards {
+    padding: 70px 0 0;
+
+    &-wrap {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 58px;
+      row-gap: 80px;
+      flex-wrap: wrap;
+
+      @include breakpoint-down(lg) {
+        column-gap: 28px;
+      }
+
+      @include breakpoint-down(md-s) {
+        column-gap: 20px;
+      }
+
+      @include breakpoint-down(sm) {
+        flex-direction: column;
+        row-gap: 28px;
+      }
+    }
+  }
+
+  &-card {
+    flex-basis: calc(33.333% - 58px);
+    min-height: 420px;
+    padding: 120px 53px 60px;
+    position: relative;
+
+    @include breakpoint-down(lg) {
+      flex-basis: calc(33.333% - 28px);
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    @include breakpoint-down(md-s) {
+      flex-basis: calc(33.333% - 20px);
+      padding-left: 20px;
+      padding-right: 20px;
+      min-height: 360px;
+      padding-top: 100px;
+    }
+
+    @include breakpoint-down(sm) {
+      min-height: 105px;
+      padding: 82px 17px 16px;
+      display: flex;
+      align-items: center;
+    }
+
+    &-index {
+      position: absolute;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--sk-color-white);
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      color: var(--sk-color-primary);
+      font-size: var(--sk-text--cards-index);
+      line-height: var(--sk-line-height--cards-indexcards-index);
+      font-weight: 700;
+      top: 0;
+      transform: translateY(-50%);
+
+      @include breakpoint-down(sm) {
+        width: 38px;
+        height: 38px;
+        left: 22px;
+        top: 10px;
+        transform: none;
+      }
+
+      &.index-title {
+        width: fit-content;
+        max-width: calc(100% - 48px);
+        border-radius: 50px;
+        font-size: var(--sk-text--cards-index-title);
+        padding: 0 20px;
+
+        @include breakpoint-down(md-s) {
+          height: 70px;
+          min-width: 170px;
+        }
+
+        @include breakpoint-down(sm) {
+          height: 60px;
+        }
+      }
+    }
+
+    &:nth-child(3n+1) {
+      background-color: var(--sk-color-yellow);
+      border-radius: 200px 25px 0 0;
+      color: var(--sk-color-primary);
+      text-align: right;
+      padding-right: 41px;
+
+      @include breakpoint-down(md-s) {
+        padding-right: 20px;
+      }
+
+      .key-benefits-card-index {
+        right: 38px;
+
+        &.index-title {
+          @include breakpoint-down(lg) {
+            right: 20px;
+          }
+
+          @include breakpoint-down(sm) {
+            left: 15px;
+          }
+        }
+      }
+    }
+
+    &:nth-child(3n+2) {
+      background-color: var(--sk-color-primary-light);
+      border-radius: 25px 25px 0 0;
+      text-align: center;
+      padding-left: 60px;
+      padding-right: 60px;
+
+      @include breakpoint-down(lg) {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+
+      @include breakpoint-down(md-s) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .key-benefits-card-index {
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &:nth-child(3n+3) {
+      background-color: var(--sk-color-green);
+      border-radius: 25px 200px 0 0;
+      color: var(--sk-color-primary);
+
+      .key-benefits-card-index {
+        left: 38px;
+
+        &.index-title {
+          @include breakpoint-down(lg) {
+            left: 20px;
+          }
+
+          @include breakpoint-down(sm) {
+            left: 15px;
+          }
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      @include breakpoint-down(sm) {
+        padding-left: 42px;
+        padding-right: 17px;
+        border-radius: 47px 0 0 0;
+        text-align: right;
+      }
+    }
+
+    &:nth-child(even) {
+      @include breakpoint-down(sm) {
+        padding-right: 42px;
+        border-radius: 0 47px 0 0;
+        text-align: left;
+
+        .key-benefits-card-index {
+          @include breakpoint-down(sm) {
+            right: 15px;
+            left: auto;
+            transform: none;
+          }
+        }
+      }
+    }
+
+    &-text {
+      font-size: var(--sk-text--cards-text);
+      line-height: var(--sk-line-height--cards-title);
+      font-weight: 700;
+    }
+  }
+}

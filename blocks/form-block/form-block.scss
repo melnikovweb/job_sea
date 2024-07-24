@@ -1,0 +1,283 @@
+@import "resources/scss/theme/mixins/all";
+
+.form-block {
+  padding: 104px 20px 60px;
+  background-color: var(--sk-color-primary);
+
+  .sk-container {
+    max-width: 1150px;
+  }
+
+  @include breakpoint-down(sm) {
+    padding: 0;
+  }
+
+  .gform_heading {
+    display: none !important;
+  }
+
+  .gform_wrapper.gravity-theme .gform_fields {
+    grid-row-gap: 62px;
+
+    @include breakpoint-down(sm) {
+      grid-row-gap: 34px;
+    }
+  }
+
+  .gform_wrapper.gravity-theme input[type="text"],
+  .gform_wrapper.gravity-theme select {
+    background-color: rgb(0 0 0 / 0%);
+    border: 0;
+    border-bottom: 4px solid var(--sk-color-white);
+    border-radius: 0;
+    color: #ffffff57;
+    padding: 8px 0;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    height: 70px;
+
+    @include breakpoint-down(sm) {
+      font-size: 14px;
+      line-height: 18px;
+      height: 37px;
+    }
+  }
+
+  .gform_wrapper.gravity-theme select {
+    appearance: none;
+    background: url(../../img/select-arrow.svg);
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px) 35px;
+    cursor: pointer;
+
+    &:focus {
+      appearance: none;
+      background: url(../../img/select-arrow-rotated.svg);
+      background-size: 25px;
+      background-repeat: no-repeat;
+      background-position: calc(100% - 15px) 35px;
+
+      @include breakpoint-down(sm) {
+        background-size: 16px;
+        background-position: calc(100% - 3px) 14px;
+      }
+    }
+
+    @include breakpoint-down(sm) {
+      background-size: 16px;
+      background-position: calc(100% - 3px) 14px;
+    }
+
+    option {
+      cursor: pointer;
+    }
+  }
+
+  .gform_wrapper.gravity-theme textarea {
+    background-color: rgb(0 0 0 / 0%);
+    border: 4px solid var(--sk-color-white);
+    border-radius: 0;
+    color: #ffffff57;
+    height: 268px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+
+    @include breakpoint-down(sm) {
+      font-size: 14px;
+      line-height: 18px;
+      height: 235px;
+      margin-top: 20px;
+      padding: 8px;
+    }
+  }
+
+  .gform_footer.top_label {
+    justify-content: center;
+  }
+
+  .gform_wrapper.gravity-theme form .gform_footer input:not([type="radio"]) {
+    background-color: var(--sk-color-pale-blue);
+    color: var(--sk-color-primary);
+    padding: 15px 35px;
+    height: 49px;
+    width: 193px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 19px;
+    letter-spacing: 0.115em;
+    margin-top: 40px;
+
+    &:hover {
+      color: var(--sk-color-white);
+      background: var(--sk-color-primary-dark);
+    }
+
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      outline-offset: 1px;
+      outline: 0.5px solid var(--sk-color-white);
+    }
+
+    @include breakpoint-down(sm) {
+      font-size: 12px;
+      line-height: 15px;
+      margin-top: 11px;
+      width: 132px;
+      padding: 5px 10px;
+      min-height: 30px;
+      height: 30px;
+    }
+  }
+
+  option {
+    background-color: var(--sk-color-primary);
+  }
+
+  .gform_wrapper.gravity-theme .gfield textarea.large {
+    height: 268px;
+    margin-top: 25px;
+    padding: 19px;
+  }
+
+  .gform_wrapper.gravity-theme .gform_validation_errors {
+    display: none;
+  }
+
+  .gform_wrapper.gravity-theme .gfield_validation_message,
+  .gform_wrapper.gravity-theme .validation_message {
+    background: unset;
+    border: unset;
+    margin-top: 8px;
+    padding: 0;
+  }
+
+  .gform_wrapper.gravity-theme .gfield_error [aria-invalid="true"] {
+    border: unset;
+    border-bottom: 4px solid #c02b0a;
+  }
+
+  .gform_footer {
+    .gform_ajax_spinner {
+      display: none;
+    }
+  }
+
+  .gform_confirmation_message {
+    color: var(--sk-color-white);
+    padding: 0 0 100px;
+  }
+
+  form {
+    .gfield_checkbox .gchoice {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-top: 15px;
+      font-size: 22px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      @include breakpoint-down(sm) {
+        margin-top: 0;
+      }
+    }
+
+    /* Hide the browser's default checkbox */
+    .gfield_checkbox .gchoice input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .gform-field-label::before {
+      display: inline-block;
+      height: 38px;
+      width: 38px;
+      background-color: #fff0;
+      border: 4px solid var(--sk-color-white);
+      border-radius: 5px;
+      content: "✔";
+      margin-right: 18px;
+      line-height: 28px;
+      text-align: center;
+      font-weight: 700;
+      color: transparent;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      @include breakpoint-down(sm) {
+        height: 30px;
+        width: 30px;
+        line-height: 24px;
+      }
+    }
+
+    /* On mouse-over, add a grey background color */
+    .gfield_checkbox .gchoice input:hover ~ .gform-field-label::before {
+      background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .gfield_checkbox .gchoice input:checked ~ .gform-field-label::before {
+      background-color: #2196f3;
+      color: var(--sk-color-white);
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .gform-field-label::after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .gfield_checkbox .gchoice input:checked ~ .gform-field-label::after {
+      display: block;
+    }
+
+    .gfield_checkbox .gchoice input:focus ~ .gform-field-label::before,
+    .gfield_checkbox .gchoice input:focus-within ~ .gform-field-label::before {
+      outline-offset: 1px;
+      outline: solid var(--sk-color-pale-blue);
+    }
+  }
+
+  .gform_wrapper.gravity-theme .gfield_checkbox label {
+    font-size: 20px;
+    line-height: 38px;
+    color: var(--sk-color-white);
+    position: relative;
+    padding-left: 56px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    @include breakpoint-down(sm) {
+      font-size: 15px;
+      line-height: 30px;
+      padding-left: 48px;
+    }
+
+    a {
+      color: var(--sk-color-white);
+    }
+  }
+}
+
+main {
+  background-color: var(--sk-color-primary);
+}

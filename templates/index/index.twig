@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+
+{% block content %}
+  {% if thumbnail_id %}
+    {% block hero %}
+      {% include 'parts/layout/hero-single.twig' %}
+    {% endblock %}
+  {% endif %}
+  {% for post in posts %}
+
+      {{ post.content }}
+
+  {% endfor %}
+{% endblock %}

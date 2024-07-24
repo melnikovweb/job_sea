@@ -1,0 +1,134 @@
+@import "resources/scss/theme/mixins/all";
+
+.our-team {
+  background: var(--sk-color-light-grey);
+  padding: 96px 0;
+  background-image: url(../../img/our-team-bg.svg);
+  background-position: bottom 59px right;
+  background-repeat: no-repeat;
+
+  @include breakpoint-down(md) {
+    padding: 53px 0;
+    background-image: unset;
+  }
+
+  .sk-container {
+    max-width: 1440px;
+  }
+
+  &-title {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 31px;
+    letter-spacing: 0.14em;
+    color: var(--sk-color-primary);
+    text-align: center;
+    padding-bottom: 80px;
+
+    @include breakpoint-down(md) {
+      font-size: 18px;
+      line-height: 22px;
+      padding-bottom: 52px;
+    }
+  }
+
+  &-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    row-gap: 55px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include breakpoint-down(md) {
+      row-gap: 49px;
+    }
+
+    li {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      width: 25%;
+
+      @include breakpoint-down(md) {
+        width: 33.33333%;
+      }
+
+      @include breakpoint-down(sm) {
+        width: 50%;
+      }
+
+      @include breakpoint-down(xs) {
+        width: 100%;
+      }
+
+      img {
+        border-radius: 100px;
+        max-width: 160px;
+        height: auto;
+
+        @include breakpoint-down(md) {
+          max-width: 143px;
+        }
+      }
+    }
+  }
+
+  &-item-image {
+    min-height: 160px;
+
+    @include breakpoint-down(md) {
+      min-height: 154px;
+    }
+  }
+
+  &-person-content {
+    margin-top: 25px;
+
+    @include breakpoint-down(md) {
+      margin-top: 0;
+    }
+  }
+
+  &-name {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 47px;
+    text-align: center;
+    color: var(--sk-color-black);
+
+    @include breakpoint-down(md) {
+      font-size: 19px;
+      line-height: 36px;
+    }
+  }
+
+  &-position {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--sk-color-black);
+
+    @include breakpoint-down(md) {
+      font-size: 14px;
+      line-height: 26px;
+    }
+  }
+
+  &-description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    color: var(--sk-color-black);
+
+    @include breakpoint-down(md) {
+      font-size: 14px;
+      line-height: 26px;
+    }
+  }
+}

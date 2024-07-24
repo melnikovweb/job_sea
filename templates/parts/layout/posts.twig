@@ -1,0 +1,18 @@
+<div class="posts">
+  {% for post in posts %}
+    <div class="post-item ">
+      <span class="post-item-date post-item-date--desktop">{{ post.date|date("d/m/Y") }}</span>
+      <div class="post-item-wrapper">
+        <a href="{{ post._permalink }}" title="{{ post.post_title}}" target="_self" class="post-item-link">
+          <div class="post-item-img">
+            {% include 'parts/components/image.twig' with {'id': post._thumbnail_id, 'classes': 'item-img sk-image-cover', 'sizes': '(max-width: 767px) 200px, (max-width: 991px) 400px, 600px', 'disableLoading': false} only %}
+          </div>
+          <div class="post-item-info">
+            <span class="post-item-date post-item-date--mobile">{{ post.date|date("d/m/Y") }}</span>
+            <h4 class="post-item-title">{{ post.post_title }}</h4>
+          </div>
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>

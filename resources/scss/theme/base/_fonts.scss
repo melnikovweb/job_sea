@@ -1,0 +1,12 @@
+/* stylelint-disable */
+
+//Fonts format needs ttf, woff, woff2
+//Convert fonts https://cloudconvert.com/
+
+$font-primary: 'Bai Jamjuree', sans-serif;
+$font-secondary: $font-primary;
+
+:root {
+  --sk-font-primary: #{$font-primary};
+  --sk-font-secondary: #{$font-secondary};
+}

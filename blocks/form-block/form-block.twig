@@ -1,0 +1,9 @@
+<section class="{{ class }} {{ classes }} {{ block_classes }}" {{ block.anchor ? 'id=' ~ block.anchor : null }}>
+  <div class="sk-container">
+
+    {% if not (form_shortcode is empty) %}
+    <div class="{{ class }}-contact_form">{{ form_shortcode }}</div>
+  {% endif %}
+
+  </div>
+</section>

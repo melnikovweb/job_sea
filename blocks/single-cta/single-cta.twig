@@ -1,0 +1,31 @@
+<section class="{{ class }}-section {{ classes }} {{ block_classes }}" {{ block.anchor ? 'id=' ~ block.anchor : null }}>
+
+  
+
+  <div class="{{ class }}">
+  <div class="{{ class }}-image-group">
+    <div class="{{ class }}-image">
+      {% if not (image is empty) %} 
+      {% include 'parts/components/image.twig' with {'id': image, 'classes': 'sk-only-d', 'sizes':
+      '(max-width: 767px) 800px, (max-width: 991px) 1000px, 1600px', 'disableLoading': false} only %} 
+      {% endif %} 
+
+      {% if not (image_mobile is empty) %} 
+      {% include 'parts/components/image.twig' with {'id': image_mobile, 'classes': 'sk-only-m', 'sizes':
+      '(max-width: 767px) 400, (max-width: 991px) 600, 800', 'disableLoading': false} only %} 
+      {% endif %}
+    </div>
+  </div>
+
+
+    <div class="{{ class }}-content-wrapper">
+      {% if content %}
+      <div class="{{ class }}-content">{{ content }}</div>
+      {% endif %}
+    </div>
+
+
+
+
+  </div>
+</section>

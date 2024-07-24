@@ -1,0 +1,33 @@
+input,
+textarea {
+  border-radius: 15px;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 10px;
+  font-weight: 400;
+  border: 1px solid var(--sk-color-black);
+  background: var(--sk-color-white);
+  color: var(--sk-color-black);
+  font-size: var(--sk-text--xs);
+
+  &:focus {
+    outline: none;
+    border-color: var(--sk-input-color-border-focus);
+  }
+
+  &::placeholder {
+    color: var(--sk-input-color-placeholder);
+  }
+}
+
+textarea {
+  min-height: 200px;
+  resize: none;
+}
+
+input[type=submit] {
+  @extend .sk-btn;
+  @extend .sk-btn--primary;
+  @extend .sk-btn--lg;
+}

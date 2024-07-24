@@ -1,0 +1,194 @@
+@import "resources/scss/theme/mixins/all";
+
+.hero-about {
+  padding: 93px 0 235px;
+  position: relative;
+
+  @include breakpoint-down(sm) {
+    padding: 0 0 29px;
+  }
+
+  .single &.hero-about-default,
+  .page &.hero-about-default {
+    margin-bottom: 96px;
+
+    @include breakpoint-down(sm) {
+      margin-bottom: 61px;
+    }
+  }
+
+  .sk-container {
+    @include breakpoint-down(sm) {
+      padding: 0;
+    }
+  }
+
+  &-content {
+    text-align: center;
+
+    @include breakpoint-down(sm) {
+      padding: 0;
+    }
+  }
+
+  &-title {
+    font-weight: 700;
+    font-size: 86px;
+    line-height: 108px;
+    color: var(--sk-color-white);
+
+    @include breakpoint-down(sm) {
+      font-size: 37px;
+      line-height: 44px;
+      text-align: left;
+      position: absolute;
+      left: var(--sk-container-padding);
+      top: 133px;
+    }
+  }
+
+  &-description {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    margin: auto;
+    color: var(--sk-color-white);
+    padding-top: 6px;
+    max-width: 570px;
+
+    @include breakpoint-down(sm) {
+      max-width: 100%;
+      font-size: 16px;
+      line-height: 20px;
+      padding: 30px calc(var(--sk-container-padding) + 20px);
+      background-color: #4464a2;
+    }
+  }
+
+  &-bg-image {
+    @include breakpoint-down(sm) {
+      position: relative;
+      background-color: #4464a2;
+      z-index: -2;
+    }
+
+    img {
+      position: absolute;
+      z-index: -2;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      @include breakpoint-down(sm) {
+        position: relative;
+      }
+    }
+  }
+
+  &-top-image img {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    left: 0;
+
+    @include breakpoint-down(sm) {
+      object-fit: cover;
+      max-width: 100%;
+    }
+  }
+
+  &-bottom-image img {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+  }
+
+  .sk-only-m {
+    display: none;
+
+    @include breakpoint-down(sm) {
+      display: block;
+    }
+  }
+
+  .sk-only-d {
+    display: block;
+
+    @include breakpoint-down(sm) {
+      display: none;
+    }
+  }
+
+  &-single {
+    background: linear-gradient(89.54deg, var(--sk-color-primary) 0.45%, rgba(35, 72, 145, 0) 94.98%);
+    padding: 230px 0 110px;
+
+    @include breakpoint-down(sm) {
+      background: linear-gradient(110.07deg, var(--sk-color-primary) 14.79%, rgba(35, 72, 145, 0) 58.83%);
+      padding: 0;
+    }
+
+    .hero-about-title,
+    .hero-about-description {
+      text-align: left;
+      margin: unset;
+      max-width: 900px;
+    }
+
+    .hero-about-title {
+      line-height: 91px;
+      margin-bottom: 31px;
+
+      @include breakpoint-down(sm) {
+        line-height: 44px;
+        position: static;
+      }
+    }
+
+    .hero-about-description {
+      max-width: 500px;
+
+      @include breakpoint-down(sm) {
+        background-color: var(--sk-color-pale-blue);
+        max-width: 100%;
+        color: var(--sk-color-primary);
+        padding: 34px calc(var(--sk-container-padding) + 30px);
+      }
+    }
+
+    .hero-about-content {
+      max-width: 1220px;
+    }
+
+    .hero-about-top-image img {
+      @include breakpoint-down(sm) {
+        z-index: 0;
+      }
+    }
+
+    .hero-about-bg-image {
+      @include breakpoint-down(sm) {
+        display: none;
+      }
+    }
+
+    .hero-about-title-wrapper {
+      background-size: 0;
+
+      @include breakpoint-down(sm) {
+        margin: 0;
+        padding: 133px var(--sk-container-padding) 22px;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}
+
+.hero-about-about .hero-about-title-wrapper {
+  background: unset !important;
+}

@@ -1,0 +1,202 @@
+{% if posts.pagination.pages is not empty %}
+  <nav class="pagination-block">
+    <ul class="pagination">
+
+      {# First #}
+      {% if posts.pagination.pages|first and posts.pagination.pages|first.current != true %}
+        <li class="first btn">
+          <a href="{{ posts.pagination.pages|first.link }}">
+            <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M17.7292 23.4991L6.10089 11.8707L17.7292 0.242432L20.4425 2.95571L11.5274 11.8707L20.4425 20.7858L17.7292 23.4991Z"
+                fill="#234891"/>
+              <path d="M3 0.500825L3 23.7575" stroke="#234891" stroke-width="6"/>
+            </svg>
+          </a>
+        </li>
+      {% else %}
+        <li class="first btn disabled">
+          <button disabled>
+            <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M17.7292 23.4991L6.10089 11.8707L17.7292 0.242432L20.4425 2.95571L11.5274 11.8707L20.4425 20.7858L17.7292 23.4991Z"
+                fill="#234891"/>
+              <path d="M3 0.500825L3 23.7575" stroke="#234891" stroke-width="6"/>
+            </svg>
+          </button>
+        </li>
+      {% endif %}
+
+      {# Previous #}
+      {% if posts.pagination.prev %}
+        <li class="prev btn">
+          <a href="{{ posts.pagination.prev.link }}">
+            <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.7937 24L14.4424 21.2L5.73968 12L14.4424 2.8L11.7937 0L0.442383 12L11.7937 24Z"
+                    fill="#234891"/>
+            </svg>
+          </a>
+        </li>
+      {% else %}
+        <li class="prev btn disabled">
+          <button disabled>
+            <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.7937 24L14.4424 21.2L5.73968 12L14.4424 2.8L11.7937 0L0.442383 12L11.7937 24Z"
+                    fill="#234891"/>
+            </svg>
+          </button>
+        </li>
+      {% endif %}
+
+      {# Pages #}
+      {% if posts.pagination.pages|length < 5 %}
+        {% for page in posts.pagination.pages %}
+          {% if page.link %}
+            <li>
+              <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+            </li>
+          {% else %}
+            <li class="current">
+              <span class="{{ page.class }}">{{ page.title }}</span>
+            </li>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% if posts.pagination.current == 1 %}
+          {% for page in posts.pagination.pages %}
+            {% if loop.index < 4 %}
+              {% if page.link %}
+                <li>
+                  <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+                </li>
+              {% else %}
+                <li class="current">
+                  <span class="{{ page.class }}">{{ page.title }}</span>
+                </li>
+              {% endif %}
+            {% elseif page.link and loop.index == posts.pagination.pages|length %}
+              <li class="dots">
+                <span>...</span>
+              </li>
+              <li>
+                <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        {% elseif posts.pagination.current == posts.pagination.pages[posts.pagination.pages|length - 1].title %}
+          {% for page in posts.pagination.pages %}
+            {% if page.link and loop.index == 1 %}
+              <li>
+                <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+              </li>
+              <li class="dots">
+                <span>...</span>
+              </li>
+            {% elseif (loop.index == posts.pagination.pages|length - 1) or (loop.index == posts.pagination.pages|length - 2) %}
+              <li>
+                <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+              </li>
+            {% elseif page.current %}
+              <li class="current">
+                <span class="{{ page.class }}">{{ page.title }}</span>
+              </li>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          {% for page in posts.pagination.pages %}
+            {% if page.current %}
+              {% if loop.index == posts.pagination.pages|length - 1 or loop.index == posts.pagination.pages|length - 2 %}
+                <li>
+                  <a href="{{ posts.pagination.pages[0].link }}"
+                     class="{{ posts.pagination.pages[0].class }}">{{ posts.pagination.pages[0].title }}</a>
+                </li>
+                <li class="dots">
+                  <span>...</span>
+                </li>
+                <li>
+                  <a href="{{ posts.pagination.pages[loop.index - 2].link }}"
+                     class="{{ posts.pagination.pages[loop.index - 2].class }}">{{ posts.pagination.pages[loop.index - 2].title }}</a>
+                </li>
+                <li class="current">
+                  <span class="{{ page.class }}">{{ page.title }}</span>
+                </li>
+                <li>
+                  <a href="{{ posts.pagination.pages[loop.index].link }}"
+                     class="{{ posts.pagination.pages[loop.index].class }}">{{ posts.pagination.pages[loop.index].title }}</a>
+                </li>
+              {% else %}
+                <li>
+                  <a href="{{ posts.pagination.pages[loop.index - 2].link }}"
+                     class="{{ posts.pagination.pages[loop.index - 2].class }}">{{ posts.pagination.pages[loop.index - 2].title }}</a>
+                </li>
+                <li class="current">
+                  <span class="{{ page.class }}">{{ page.title }}</span>
+                </li>
+                <li>
+                  <a href="{{ posts.pagination.pages[loop.index].link }}"
+                     class="{{ posts.pagination.pages[loop.index].class }}">{{ posts.pagination.pages[loop.index].title }}</a>
+                </li>
+                <li class="dots">
+                  <span>...</span>
+                </li>
+                <li>
+                  <a href="{{ posts.pagination.pages[posts.pagination.pages|length - 1].link }}"
+                     class="{{ posts.pagination.pages[posts.pagination.pages|length - 1].class }}">{{ posts.pagination.pages[posts.pagination.pages|length - 1].title }}</a>
+                </li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+
+      {# Next #}
+      {% if posts.pagination.next %}
+        <li class="next btn">
+          <a href="{{ posts.pagination.next.link }}">
+            <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.09103 24L0.442383 21.2L9.14509 12L0.442383 2.8L3.09103 0L14.4424 12L3.09103 24Z"
+                    fill="#234891"/>
+            </svg>
+
+          </a>
+        </li>
+      {% else %}
+        <li class="next btn disabled">
+          <button disabled>
+            <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.09103 24L0.442383 21.2L9.14509 12L0.442383 2.8L3.09103 0L14.4424 12L3.09103 24Z"
+                    fill="#234891"/>
+            </svg>
+          </button>
+        </li>
+      {% endif %}
+
+      {# Last #}
+      {% if posts.pagination.pages|last and posts.pagination.pages|last.current != true %}
+        <li class="last btn">
+          <a href="{{ posts.pagination.pages|last.link }}">
+            <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3.15556 23.4991L14.7839 11.8707L3.15556 0.242432L0.442285 2.95571L9.35733 11.8707L0.442285 20.7858L3.15556 23.4991Z"
+                fill="#234891"/>
+              <path d="M17.8848 0.500825L17.8848 23.7575" stroke="#234891" stroke-width="6"/>
+            </svg>
+
+          </a>
+        </li>
+      {% else %}
+        <li class="last btn disabled">
+          <button disabled>
+            <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3.15556 23.4991L14.7839 11.8707L3.15556 0.242432L0.442285 2.95571L9.35733 11.8707L0.442285 20.7858L3.15556 23.4991Z"
+                fill="#234891"/>
+              <path d="M17.8848 0.500825L17.8848 23.7575" stroke="#234891" stroke-width="6"/>
+            </svg>
+          </button>
+        </li>
+      {% endif %}
+
+    </ul>
+  </nav>
+{% endif %}

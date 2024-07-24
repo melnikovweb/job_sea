@@ -1,0 +1,33 @@
+<div class="side-menu fixed">
+  <div class="sk-container">
+    <div class="side-menu-inner">
+      <button class="header-burger" role="button" tabindex="0">
+        <svg class="menu-close">
+          <use href="#icon-menu-close"></use>
+        </svg>
+      </button>
+      <nav id="nav-main" class="nav-main" role="navigation">
+        {% include "parts/components/header-menu.twig" with {'items':
+        menu.get_items} %}
+      </nav>
+      {% if options.socials %}
+      <ul class="socials header-socials">
+        {% for item in options.socials %}
+        <li class="socials-item">
+          <a
+            href="{{ item.social_link }}"
+            target="_blank"
+            title="Social link"
+            class="socials-link"
+          >
+            <i
+              class="{{ item.social_icon ? 'fab fa-' ~ item.social_icon : 'fas fa-link' }}"
+            ></i>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+</div>

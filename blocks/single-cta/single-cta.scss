@@ -1,0 +1,138 @@
+@import "resources/scss/theme/mixins/all";
+
+.single-cta {
+  background: var(--sk-color-yellow);
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+
+  @include breakpoint-down(sm) {
+    min-height: 230px;
+  }
+
+  &-section {
+    padding: 93px 0;
+
+    @include breakpoint-down(sm) {
+      padding: 40px 0 20px;
+    }
+  }
+
+  picture {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+  }
+
+  &-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--sk-color-primary);
+    mask-image: url(../../img/single-cta-mask.svg);
+    mask-position: bottom right;
+    mask-size: cover;
+    mask-repeat: no-repeat;
+
+    &-group {
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      bottom: 0;
+      right: calc(74% - 40px);
+
+      @include breakpoint-down(sm) {
+        width: calc(55% - 40px);
+      }
+
+      @include breakpoint-down(xs) {
+        width: calc(64% - 40px);
+      }
+    }
+
+    img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &-content {
+    max-width: 631px;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 52px;
+    color: var(--sk-color-primary);
+    position: relative;
+
+    @include breakpoint-down(sm) {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 0;
+      line-height: 52px;
+
+      @include breakpoint-down(sm) {
+        line-height: 18px;
+      }
+    }
+
+    p::before {
+      content: "“";
+      font-size: 200px;
+      position: absolute;
+      left: -95px;
+      top: 104px;
+      font-style: normal;
+      line-height: 0;
+
+      @include breakpoint-down(sm) {
+        font-size: 20px;
+        line-height: 26px;
+        position: static;
+      }
+    }
+
+    p::after {
+      content: "”";
+      font-size: 200px;
+      line-height: 0;
+      position: absolute;
+      right: -113px;
+      bottom: 60px;
+      font-style: normal;
+
+      @include breakpoint-down(sm) {
+        font-size: 20px;
+        line-height: 26px;
+        position: static;
+      }
+    }
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(74% - 40px);
+      padding: 40px 110px;
+      margin-left: auto;
+
+      @include breakpoint-down(sm) {
+        padding: 20px 23px;
+        width: calc(60% - 40px);
+      }
+    }
+  }
+}

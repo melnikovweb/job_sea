@@ -1,0 +1,52 @@
+.socials {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+
+  .footer & {
+    justify-content: flex-end;
+
+    @include breakpoint-down(xs) {
+      justify-content: center;
+    }
+  }
+
+  .header & {
+    justify-content: center;
+  }
+
+  &-item {
+    margin-left: 27px;
+    line-height: 1;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &-link {
+    color: inherit;
+    font-size: 24px;
+
+    @include breakpoint-down(sm) {
+      font-size: 32px;
+    }
+
+    .footer & {
+      color: var(--sk-color-primary-light);
+
+      &:hover {
+        color: var(--sk-color-primary-dark);
+      }
+    }
+
+    .header & {
+      color: var(--sk-color-white);
+
+      &:hover {
+        color: var(--sk-color-yellow);
+      }
+    }
+  }
+}

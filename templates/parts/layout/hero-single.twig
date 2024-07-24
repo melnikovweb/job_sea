@@ -1,0 +1,55 @@
+{% set class = 'hero-about' %}
+{% set thumbnail_post_url = thumbnail_url ? thumbnail_url : options.single_image_mobile  %}
+
+<section class="{{ class }} {{ class }}-single {{ class }}-default gutenberg-block">
+
+
+  <div class="sk-container sk-container--fl">
+
+    <div class="{{ class }}-content sk-container">
+
+      {% if options.single_top_layer_mobile %}
+        <div class="{{ class }}-top-image sk-only-m">
+          {% include 'parts/components/image.twig' with {'id': options.single_top_layer_mobile, 'class': 'img-fluid', 'sizes': '393px'} only %}
+        </div>
+      {% endif %}
+
+      {% if thumbnail_id %}
+        <div class="{{ class }}-bg-image sk-only-m">
+          {% include 'parts/components/image.twig' with {'id': thumbnail_id, 'class': 'img-fluid', 'sizes': '390px'} only %}
+        </div>
+      {% endif %}
+
+      <div class="{{ class }}-title-wrapper" style="background-image: linear-gradient(110.07deg, #234891 14.79%, rgba(35, 72, 145, 0) 58.83%), url({{thumbnail_post_url}});">
+        <h1 class="{{ class }}-title">{{ title }}</h1>
+      </div>
+      {% if not (fields.description is empty) %}
+        <p class="{{ class }}-description">{{ fields.description }}</p>
+      {% endif %}
+    </div>
+
+  </div>
+
+  {% if options.single_top_layer %}
+    <div class="{{ class }}-top-image sk-only-d">
+      {% include 'parts/components/image.twig' with {'id': options.single_top_layer, 'class': 'img-fluid', 'sizes': '696px'} only %}
+    </div>
+  {% endif %}
+
+  {% if options.single_bottom_layer %}
+    <div class="{{ class }}-bottom-image sk-only-d">
+      {% include 'parts/components/image.twig' with {'id': options.single_bottom_layer, 'class': 'img-fluid', 'sizes': '687px'} only %}
+    </div>
+  {% endif %}
+
+  {% if thumbnail_id %}
+    <div class="{{ class }}-bg-image sk-only-d">
+      {% include 'parts/components/image.twig' with {'id': thumbnail_id, 'class': 'img-fluid', 'sizes': '1440px'} only %}
+    </div>
+  {% elseif options.single_image %}
+    <div class="{{ class }}-bg-image sk-only-d">
+      {% include 'parts/components/image.twig' with {'id': options.single_image, 'class': 'img-fluid', 'sizes': '1440px'} only %}
+    </div>
+  {% endif %}
+
+</section>

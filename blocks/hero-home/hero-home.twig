@@ -1,0 +1,64 @@
+{% set randomID = 'video-btn-' ~ random(100000) %}
+
+<section class="{{ class }} {{ classes }} {{ block_classes }}" id="{{ block.id }}">
+  <div class="{{ class }}-wrapper">
+    <div class="{{ class }}-image">
+      {% if not (fields.hero_media.background_image is empty) %}
+        <div class="hero-img-wrapper">
+          {% include 'parts/components/image.twig' with {'id': fields.hero_media.background_image.id, 'classes': 'hero-img sk-image-cover', 'sizes': '1600px', 'disableLoading': false} only %}
+        </div>
+      {% endif %}
+      <div class="{{ class }}-image-mask"></div>
+      {% if not hero_home_mask is empty %}
+        <img src="{{ hero_home_mask }}" alt="hero-mask-image" class="{{ class }}-image-mask-item">
+      {% endif %}
+    </div>
+    <div class="sk-container">
+      <div class="{{ class }}-content-wrapper">
+        <div class="{{ class }}-content">
+          {% if not (fields.hero_info.title is empty) %}
+            <h1 class="{{ class }}-title">{{ fields.hero_info.title }}</h1>
+          {% endif %}
+          <div class="{{ class }}-content-media-mob">
+            {% if not (fields.hero_media.background_image_mobile is empty) %}
+              <div class="{{ class }}-content-media-mob-image">
+                {% include 'parts/components/image.twig' with {'id': fields.hero_media.background_image_mobile.id, 'classes': 'hero-mob-img sk-image-cover', 'sizes': '800px', 'disableLoading': false} only %}
+              </div>
+            {% endif %}
+            {% if not (fields.hero_media.video_link is empty) %}
+              <button data-btn-id="{{ randomID }}" class="{{ class }}-video-link hero-mobile-play-btn" title="popup video"
+                 data-fslightbox="lightbox"
+                 data-class="fslightbox-youtube-iframe"
+              ></button>
+            {% endif %}
+          </div>
+          {% if not (fields.hero_info.text is empty) %}
+            <div class="{{ class }}-text">
+              {{ fields.hero_info.text }}
+            </div>
+          {% endif %}
+
+          {% if not (fields.hero_info.button is empty) %}
+            {% set button = fields.hero_info.button %}
+            <div class="{{ class }}-button">
+              <a href="{{ button.url }}" target="{{ button.target ? button.target : '_self' }}"
+                 title="{{ button.title ? button.title : button.url }}"
+                 class="sk-btn sk-btn--secondary">
+                {{ button.title ? button.title : button.url }}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+        <div class="{{ class }}-media">
+          {% if not (fields.hero_media.video_link is empty) %}
+            {% set youtube_id = get_youtube_id(fields.hero_media.video_link) %}
+            <a href="{{fields.hero_media.video_link}}" class="{{ class }}-video-link hero-home-play-btn" title="popup video"
+            id="{{ randomID }}"
+            data-fslightbox="lightbox"
+            data-class="fslightbox-youtube-iframe"></a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

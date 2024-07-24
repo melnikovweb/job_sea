@@ -1,0 +1,26 @@
+<section class="{{ class }} {{ classes }} {{ block_classes }}" {{ block.anchor ? 'id=' ~ block.anchor : null }}>
+  <div class="sk-container">
+
+    <div class="{{ class }}-content swiper singleSwiper">
+
+      <div class="swiper-wrapper">
+
+      {% for item in single_gallery %}
+        <div class="{{ class }}-item swiper-slide">
+          {% if item %}
+          <div class="{{ class }}-item-image">
+            <div class="post-image-wrapper">
+            {% include 'parts/components/image.twig' with {'id': item, 'class': 'img-fluid', 'sizes': '1130px'} only %}
+          </div>
+        </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+      
+    </div>
+    <div class="swiper-pagination"></div>
+      
+    </div>
+
+  </div>
+</section>

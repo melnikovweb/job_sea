@@ -1,0 +1,173 @@
+:root {
+  --scroll-bar-width: 0;
+}
+
+.side-menu {
+  position: fixed;
+  z-index: -1;
+  left: 100%;
+  bottom: 0;
+  top: 0;
+  width: 50%;
+  visibility: hidden;
+  background-color: var(--sk-color-primary-light);
+  transition: 0.4s;
+  transition-timing-function: ease-in-out;
+
+  @include breakpoint-down(md) {
+    overflow: auto;
+    display: flex;
+  }
+
+  @include breakpoint-down(md-s) {
+    width: 100%;
+  }
+
+  &.opened {
+    z-index: 9999;
+    visibility: visible;
+    left: 0;
+
+    .sk-container {
+      @include breakpoint-down(md-s) {
+        max-width: 100%;
+      }
+    }
+
+    @include breakpoint-up(md-s) {
+      z-index: 9999;
+      left: 50%;
+    }
+  }
+
+  .header-burger {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .menu-close {
+    height: 35px;
+    width: 35px;
+    filter: brightness(10);
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    padding-left: 40px;
+
+    @include breakpoint-down(md) {
+      margin-top: 50px;
+      padding-left: 0;
+    }
+
+    .menu-item {
+      a {
+        font-weight: 700;
+        font-size: 85px;
+        line-height: 143px;
+        text-align: center;
+        text-transform: capitalize;
+        color: var(--sk-color-white);
+        position: relative;
+        text-decoration: none;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -5px;
+          width: 0;
+          height: 4px;
+          background-color: var(--sk-color-white);
+          transition: width 0.35s;
+        }
+
+        &:hover::before {
+          width: 100%;
+        }
+
+        @include breakpoint-down(md) {
+          font-size: 40px;
+          line-height: 75px;
+        }
+      }
+    }
+
+    .contacts-link {
+      border-top: 1px solid var(--sk-color-white);
+      margin-top: 40px;
+
+      a {
+        font-size: 29px;
+        line-height: 52px;
+      }
+    }
+  }
+
+  .nav-main li {
+    padding-right: 10px;
+
+    @include breakpoint-down(md) {
+      margin-top: 35px;
+    }
+
+    a {
+      transition: all 0.3s;
+      display: inline-block;
+      font-style: normal;
+      text-align: left;
+
+      @include breakpoint-down(md) {
+        text-align: center;
+      }
+
+      &:hover {
+        transform: skewX(-10deg);
+      }
+    }
+  }
+
+  .header-socials {
+    position: absolute;
+    bottom: 64px;
+    right: 0;
+
+    @include breakpoint-down(md) {
+      bottom: 25px;
+      position: relative;
+      right: auto;
+      padding-bottom: 35px;
+    }
+
+    .socials-link {
+      color: var(--sk-color-white);
+    }
+  }
+
+  &-inner {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+
+    @include breakpoint-down(md) {
+      text-align: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+    }
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+  width: 100%;
+  padding-right: var(--scroll-bar-width);
+
+  @include breakpoint-down(md) {
+    padding-right: 0;
+  }
+}
